@@ -4,9 +4,670 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InsKino</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Welcome to InsKino! This is a placeholder for the main content of the website.</p>
-    <p> Hello from GitHub Desktop</p>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <span class="brand-icon">I</span>
+        <span>Ins<span class="brand-highlight">Kino</span></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="tv-shows.html">TV Shows</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <span class="nav-indicator"></span>
+    </ul>
+
+    <div class="nav-actions">
+        <form class="search-form" action="movies.html" method="GET">
+            <input
+                type="search"
+                name="q"
+                placeholder="Search movies, actors..."
+                aria-label="Search movies and actors"
+            >
+            <button type="submit" aria-label="Search">
+                <span>⌕</span>
+            </button>
+        </form>
+
+        <a href="login.html" class="login-btn">Sign In</a>
+        <a href="register.html" class="register-btn">Join InsKino</a>
+    </div>
+</nav>
+
+   <!-- DEVELOPMENT ANNOUNCEMENT -->
+<div class="development-notice">
+    <div class="notice-content">
+        <span class="notice-badge">EARLY PREVIEW</span>
+        <div>
+            <h3>Something exciting is taking shape.</h3>
+            <p>
+                InsKino is currently in its initial development phase.
+                New features, improvements and experiences are coming
+                in future updates / commits. Stay tuned for the full release!
+            </p>
+        </div>
+    </div>
+    <span class="notice-icon">✦</span>
+</div>
+<br>
+<!-- PER MOMENTIN VETEM TESTING TEMPLATE - DO TE PERDITESOHET ME COMMITS TE ARDHSHEM -->
+<!-- MAIN CONTENT -->
+<main class="home-main">
+
+    <!-- HERO SECTION -->
+    <section class="home-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">✦ YOUR WORLD OF CINEMA</span>
+
+            <h1>
+                Discover stories.
+                <span>Experience cinema.</span>
+            </h1>
+
+            <p>
+                Explore thousands of movies and TV shows.
+                Rate your favorites, share your reviews,
+                and create your own cinematic journey.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="discover.html" class="hero-primary">
+                    Explore Movies <span>→</span>
+                </a>
+
+                <a href="register.html" class="hero-secondary">
+                    Join the Community
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <h3>10K+</h3>
+                    <p>Movies</p>
+                </div>
+
+                <div>
+                    <h3>500+</h3>
+                    <p>TV Shows</p>
+                </div>
+
+                <div>
+                    <h3>∞</h3>
+                    <p>Stories to Discover</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-poster hero-poster-one">
+                <img src="assets/posters/poster1.jpg" alt="Featured movie">
+            </div>
+
+            <div class="hero-poster hero-poster-two">
+                <img src="assets/posters/poster2.jpg" alt="Featured movie">
+            </div>
+
+            <div class="hero-poster hero-poster-three">
+                <img src="assets/posters/poster3.jpg" alt="Featured movie">
+            </div>
+
+            <div class="hero-floating-card">
+                <span>★</span>
+                <div>
+                    <strong>Movie Lovers</strong>
+                    <small>Find your next favorite</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+<!-- FEATURED SLIDER + SIDEBAR -->
+<section class="home-feature-layout">
+
+    <!-- FEATURED MOVIE SLIDER -->
+    <div class="featured-slider">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">EDITOR'S SELECTION</span>
+                <h2>Featured This Week</h2>
+                <p>Stories worth adding to your watchlist.</p>
+            </div>
+        </div>
+
+        <div class="slider-track" id="featuredSlider">
+
+            <!-- SLIDE 1 -->
+            <article class="feature-slide is-active">
+
+                <img
+                    src="assets/posters/poster1.jpg"
+                    alt="Featured movie one"
+                    class="feature-image"
+                >
+
+                <div class="feature-overlay">
+                    <span class="feature-category">FEATURED FILM</span>
+
+                    <h2>Movie Title One</h2>
+
+                    <p>
+                        An unforgettable cinematic experience.
+                        Discover the story and share your opinion.
+                    </p>
+
+                    <div class="feature-meta">
+                        <span>2026</span>
+                        <span>Action / Adventure</span>
+                        <span>★ 8.9</span>
+                    </div>
+
+                    <a href="movies.html" class="feature-button">
+                        Explore Movie →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <!-- SLIDE 2 -->
+            <article class="feature-slide">
+
+                <img
+                    src="assets/posters/poster2.jpg"
+                    alt="Featured movie two"
+                    class="feature-image"
+                >
+
+                <div class="feature-overlay">
+                    <span class="feature-category">INSKINO RECOMMENDS</span>
+
+                    <h2>Movie Title Two</h2>
+
+                    <p>
+                        A captivating story that keeps you
+                        interested until the very last scene.
+                    </p>
+
+                    <div class="feature-meta">
+                        <span>2025</span>
+                        <span>Drama / Thriller</span>
+                        <span>★ 8.5</span>
+                    </div>
+
+                    <a href="movies.html" class="feature-button">
+                        Explore Movie →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <!-- SLIDE 3 -->
+            <article class="feature-slide">
+
+                <img
+                    src="assets/posters/poster3.jpg"
+                    alt="Featured movie three"
+                    class="feature-image"
+                >
+
+                <div class="feature-overlay">
+                    <span class="feature-category">MOVIE SPOTLIGHT</span>
+
+                    <h2>Movie Title Three</h2>
+
+                    <p>
+                        Explore another world through an incredible
+                        combination of storytelling and cinema.
+                    </p>
+
+                    <div class="feature-meta">
+                        <span>2026</span>
+                        <span>Sci-Fi / Action</span>
+                        <span>★ 9.1</span>
+                    </div>
+
+                    <a href="movies.html" class="feature-button">
+                        Explore Movie →
+                    </a>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- SLIDER CONTROLS -->
+        <div class="slider-controls">
+
+            <div class="slider-navigation">
+
+                <button
+                    type="button"
+                    id="previousSlide"
+                    aria-label="Previous featured movie"
+                >
+                    ←
+                </button>
+
+                <button
+                    type="button"
+                    id="nextSlide"
+                    aria-label="Next featured movie"
+                >
+                    →
+                </button>
+
+            </div>
+
+            <div class="slider-dots" id="sliderDots">
+
+                <button class="active" data-slide="0"
+                        aria-label="Show slide 1"
+                        aria-current="true"></button>
+
+                <button data-slide="1"
+                        aria-label="Show slide 2"></button>
+
+                <button data-slide="2"
+                        aria-label="Show slide 3"></button>
+
+            </div>
+
+            <span class="slider-counter" id="sliderCounter">
+                01 / 03
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ASIDE SIDEBAR -->
+    <aside class="home-aside">
+
+        <!-- GENRES -->
+        <div class="aside-card">
+
+            <span class="section-label">EXPLORE</span>
+
+            <h3>Browse by Genre</h3>
+
+            <p>Find something that matches your mood.</p>
+
+            <div class="genre-list">
+
+                <a href="discover.html?genre=action">Action <span>→</span></a>
+
+                <a href="discover.html?genre=drama">Drama <span>→</span></a>
+
+                <a href="discover.html?genre=comedy">Comedy <span>→</span></a>
+
+                <a href="discover.html?genre=scifi">Sci-Fi <span>→</span></a>
+
+                <a href="discover.html?genre=horror">Horror <span>→</span></a>
+
+                <a href="discover.html?genre=romance">Romance <span>→</span></a>
+
+            </div>
+
+            <a href="discover.html" class="aside-link">
+                Explore all genres →
+            </a>
+
+        </div>
+
+
+        <!-- UPCOMING FEATURES -->
+        <div class="aside-card aside-coming">
+
+            <span class="section-label">THE INSKINO EXPERIENCE</span>
+
+            <h3>More than just movies.</h3>
+
+            <p>
+                We're building a platform where every
+                movie lover can create their own
+                cinematic history.
+            </p>
+
+            <ul class="coming-list">
+                <li>
+                    <span>✦</span> Personal Watchlists
+                </li>
+
+                <li>
+                    <span>✦</span> Movie Ratings
+                </li>
+
+                <li>
+                    <span>✦</span> Community Reviews
+                </li>
+
+                <li>
+                    <span>✦</span> Personal Movie Diary
+                </li>
+            </ul>
+
+            <span class="coming-label">
+                MORE FEATURES COMING SOON
+            </span>
+
+        </div>
+
+
+        <!-- QUICK DISCOVERY -->
+        <div class="aside-card aside-discover">
+
+            <span class="aside-discover-icon">★</span>
+
+            <h3>What should you watch next?</h3>
+
+            <p>
+                Let your next favorite movie find you.
+            </p>
+
+            <a href="discover.html" class="aside-discover-button">
+                Discover Now →
+            </a>
+
+        </div>
+
+    </aside>
+
+</section>
+
+
+    <!-- TRENDING MOVIES -->
+    <section class="movie-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">WHAT'S POPULAR</span>
+                <h2>Trending Movies</h2>
+                <p>Movies everyone's talking about.</p>
+            </div>
+
+            <a href="movies.html" class="view-all">
+                View All →
+            </a>
+        </div>
+
+
+        <div class="movie-grid">
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/movie1.jpg" alt="Movie poster">
+                    <span class="movie-badge">TRENDING</span>
+                    <button class="watchlist-btn" aria-label="Add to watchlist">+</button>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Movie Title One</h3>
+                    <p>2026 · Action / Adventure</p>
+                    <span class="movie-rating">★ 8.9 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/movie2.jpg" alt="Movie poster">
+                    <button class="watchlist-btn" aria-label="Add to watchlist">+</button>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Movie Title Two</h3>
+                    <p>2025 · Drama / Thriller</p>
+                    <span class="movie-rating">★ 8.5 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/movie3.jpg" alt="Movie poster">
+                    <button class="watchlist-btn" aria-label="Add to watchlist">+</button>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Movie Title Three</h3>
+                    <p>2026 · Sci-Fi / Action</p>
+                    <span class="movie-rating">★ 9.1 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/movie4.jpg" alt="Movie poster">
+                    <button class="watchlist-btn" aria-label="Add to watchlist">+</button>
+                </div>
+
+                <div class="movie-info">
+                    <h3>Movie Title Four</h3>
+                    <p>2025 · Adventure / Fantasy</p>
+                    <span class="movie-rating">★ 8.2 / 10</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCOVERY BANNER -->
+    <section class="discovery-banner">
+
+        <div>
+            <span class="section-label">YOUR NEXT FAVORITE AWAITS</span>
+
+            <h2>Not sure what to watch?</h2>
+
+            <p>
+                Browse different genres and discover
+                something worth remembering.
+            </p>
+        </div>
+
+        <a href="discover.html" class="hero-primary">
+            Start Discovering →
+        </a>
+
+    </section>
+
+
+    <!-- POPULAR TV SHOWS -->
+    <section class="movie-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">BINGE-WORTHY STORIES</span>
+                <h2>Popular TV Shows</h2>
+                <p>Find your next series obsession.</p>
+            </div>
+
+            <a href="tv-shows.html" class="view-all">
+                View All →
+            </a>
+        </div>
+
+
+        <div class="movie-grid">
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/tv1.jpg" alt="TV show poster">
+                </div>
+
+                <div class="movie-info">
+                    <h3>TV Show One</h3>
+                    <p>2026 · Drama</p>
+                    <span class="movie-rating">★ 9.2 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/tv2.jpg" alt="TV show poster">
+                </div>
+
+                <div class="movie-info">
+                    <h3>TV Show Two</h3>
+                    <p>2025 · Crime</p>
+                    <span class="movie-rating">★ 8.8 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/tv3.jpg" alt="TV show poster">
+                </div>
+
+                <div class="movie-info">
+                    <h3>TV Show Three</h3>
+                    <p>2026 · Sci-Fi</p>
+                    <span class="movie-rating">★ 8.6 / 10</span>
+                </div>
+            </article>
+
+
+            <article class="movie-card">
+                <div class="movie-poster">
+                    <img src="assets/posters/tv4.jpg" alt="TV show poster">
+                </div>
+
+                <div class="movie-info">
+                    <h3>TV Show Four</h3>
+                    <p>2025 · Mystery</p>
+                    <span class="movie-rating">★ 8.4 / 10</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND SECTION -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="brand">
+                <span class="brand-icon">I</span>
+                <span>Ins<span class="brand-highlight">Kino</span></span>
+            </a>
+
+            <p>
+                Your personal space for discovering,
+                rating and reviewing the world of cinema.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="YouTube">YT</a>
+            </div>
+
+        </div>
+
+
+        <!-- EXPLORE LINKS -->
+        <div class="footer-column">
+
+            <h3>Explore</h3>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="tv-shows.html">TV Shows</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- ACCOUNT LINKS -->
+        <div class="footer-column">
+
+            <h3>My Account</h3>
+
+            <ul>
+                <li><a href="login.html">Sign In</a></li>
+                <li><a href="register.html">Create Account</a></li>
+                <li><a href="watchlist.html">My Watchlist</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- SUPPORT LINKS -->
+        <div class="footer-column">
+
+            <h3>Information</h3>
+
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="currentYear"></span> InsKino.
+            All rights reserved.
+        </p>
+
+        <p class="footer-tagline">
+            MADE FOR MOVIE LOVERS <span>✦</span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 </body>
 </html>
