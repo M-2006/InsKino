@@ -282,3 +282,214 @@ if (top5Toggle && premtimTop5 && muhametTop5 && top5CreatorName) {
         top5Toggle.textContent = `Show ${nextCreator}'s Top 5`;
     });
 }
+
+/* =========================================
+   INSKINO MOVIES CATALOGUE
+========================================= */
+
+const movieGrid = document.getElementById("catalogMovieGrid");
+
+if (movieGrid) {
+
+    const movieCards = Array.from(
+        movieGrid.querySelectorAll(".catalog-card")
+    );
+
+    const searchInput = document.getElementById("movieSearch");
+    const genreButtons = document.querySelectorAll(".genre-filter");
+
+    const yearFilter = document.getElementById("yearFilter");
+    const ratingFilter = document.getElementById("ratingFilter");
+
+    const sortSelect = document.getElementById("sortMovies");
+
+    const movieCount = document.getElementById("movieCount");
+    const noMovies = document.getElementById("noMovies");
+
+    const clearFilters = document.getElementById("clearFilters");
+    const resetMovieSearch = document.getElementById("resetMovieSearch");
+
+    let activeGenre = "all";
+
+
+    // FILTER AND SORT MOVIES
+    function updateMovieCatalogue() {
+
+        const searchValue = searchInput.value
+            .trim()
+            .toLowerCase();
+
+        const selectedYear = yearFilter.value;
+        const minimumRating = Number(ratingFilter.value);
+
+        let visibleMovies = [];
+
+        movieCards.forEach(movie => {
+
+            const title = movie.dataset.title.toLowerCase();
+
+            const genres = movie.dataset.genres.split(" ");
+
+            const year = movie.dataset.year;
+
+            const rating = Number(movie.dataset.rating);
+
+            const matchesSearch =
+                title.includes(searchValue) ||
+                genres.some(genre => genre.includes(searchValue));
+
+            const matchesGenre =
+                activeGenre === "all" ||
+                genres.includes(activeGenre);
+
+            const matchesYear =
+                selectedYear === "all" ||
+                year === selectedYear;
+
+            const matchesRating =
+                rating >= minimumRating;
+
+            const isVisible =
+                matchesSearch &&
+                matchesGenre &&
+                matchesYear &&
+                matchesRating;
+
+            movie.hidden = !isVisible;
+
+            if (isVisible) {
+                visibleMovies.push(movie);
+            }
+
+        });
+
+
+        // SORT MOVIES
+        const sorting = sortSelect.value;
+
+        visibleMovies.sort((a, b) => {
+
+            switch (sorting) {
+
+                case "rating":
+                    return Number(b.dataset.rating) -
+                           Number(a.dataset.rating);
+
+                case "newest":
+                    return Number(b.dataset.year) -
+                           Number(a.dataset.year);
+
+                case "oldest":
+                    return Number(a.dataset.year) -
+                           Number(b.dataset.year);
+
+                case "alphabetical":
+                    return a.dataset.title.localeCompare(
+                        b.dataset.title
+                    );
+
+                default:
+                    return Number(a.dataset.popularity) -
+                           Number(b.dataset.popularity);
+
+            }
+
+        });
+
+
+        // UPDATE GRID ORDER
+        visibleMovies.forEach(movie => {
+            movieGrid.appendChild(movie);
+        });
+
+
+        // UPDATE RESULTS COUNT
+        movieCount.textContent =
+            `Showing ${visibleMovies.length} of ${movieCards.length} movies`;
+
+
+        // EMPTY STATE
+        noMovies.hidden = visibleMovies.length !== 0;
+
+    }
+
+
+    // GENRE BUTTONS
+    genreButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            activeGenre = button.dataset.genre;
+
+            genreButtons.forEach(item => {
+
+                const isActive = item === button;
+
+                item.classList.toggle("active", isActive);
+
+                item.setAttribute(
+                    "aria-pressed",
+                    String(isActive)
+                );
+
+            });
+
+            updateMovieCatalogue();
+
+        });
+
+    });
+
+
+    // SEARCH
+    searchInput.addEventListener("input", updateMovieCatalogue);
+
+
+    // YEAR FILTER
+    yearFilter.addEventListener("change", updateMovieCatalogue);
+
+
+    // RATING FILTER
+    ratingFilter.addEventListener("change", updateMovieCatalogue);
+
+
+    // SORTING
+    sortSelect.addEventListener("change", updateMovieCatalogue);
+
+
+    // RESET FILTERS
+    function resetFilters() {
+
+        searchInput.value = "";
+        yearFilter.value = "all";
+        ratingFilter.value = "0";
+        sortSelect.value = "popular";
+
+        activeGenre = "all";
+
+        genreButtons.forEach(button => {
+
+            const isActive = button.dataset.genre === "all";
+
+            button.classList.toggle("active", isActive);
+
+            button.setAttribute(
+                "aria-pressed",
+                String(isActive)
+            );
+
+        });
+
+        updateMovieCatalogue();
+
+    }
+
+    clearFilters.addEventListener("click", resetFilters);
+
+    resetMovieSearch.addEventListener("click", resetFilters);
+
+
+    // INITIALIZE
+    updateMovieCatalogue();
+
+}

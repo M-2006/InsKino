@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies | InsKino</title>
+    <link rel="stylesheet" href="style.css">    
+    <link rel="icon" href="assets/logo/inskino-logo-icon.svg" type="image/svg+xml">
+
+</head>
+<body>
+    
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <img src="assets/logo/inskino-logo.svg" height="50" alt="InsKino Logo" class="brand-logo">
+        
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="tv-shows.html">TV Shows</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <span class="nav-indicator"></span>
+    </ul>
+
+    <div class="nav-actions">
+        <form class="search-form" action="movies.html" method="GET">
+            <input
+                type="search"
+                name="q"
+                placeholder="Search movies, actors..."
+                aria-label="Search movies and actors"
+            >
+            <button type="submit" aria-label="Search">
+                <span>⌕</span>
+            </button>
+        </form>
+
+        <a href="login.html" class="login-btn">Sign In</a>
+        <a href="register.html" class="register-btn">Join InsKino</a>
+    </div>
+</nav>
+
+<!-- =========================================
+     MOVIES PAGE
+========================================= -->
+
+<main class="movies-page">
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="movies-intro">
+
+        <div class="movies-intro-content">
+
+            <span class="movies-eyebrow">
+                ✦ THE INSKINO COLLECTION
+            </span>
+
+            <h1>
+                Find your next
+                <span>favorite film.</span>
+            </h1>
+
+            <p>
+                From timeless classics to the latest releases,
+                explore movies worth watching, rating and remembering.
+            </p>
+
+        </div>
+
+        <div class="movies-intro-decoration">
+            <span>EXPLORE.</span>
+            <span>DISCOVER.</span>
+            <span>REMEMBER.</span>
+        </div>
+
+    </section>
+
+
+    <!-- MOVIE CATALOGUE -->
+    <section class="movies-catalog">
+
+        <!-- FILTER SIDEBAR -->
+        <aside class="movies-sidebar">
+
+            <div class="filter-heading">
+                <h2>Filters</h2>
+
+                <button type="button" id="clearFilters">
+                    Clear all
+                </button>
+            </div>
+
+
+            <!-- GENRE FILTER -->
+            <div class="filter-group">
+
+                <h3>Genres</h3>
+
+                <div class="genre-filters">
+
+                    <button class="genre-filter active"
+                            data-genre="all"
+                            aria-pressed="true">
+                        All Movies
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="action"
+                            aria-pressed="false">
+                        Action
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="drama"
+                            aria-pressed="false">
+                        Drama
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="comedy"
+                            aria-pressed="false">
+                        Comedy
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="scifi"
+                            aria-pressed="false">
+                        Sci-Fi
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="thriller"
+                            aria-pressed="false">
+                        Thriller
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="horror"
+                            aria-pressed="false">
+                        Horror
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="adventure"
+                            aria-pressed="false">
+                        Adventure
+                    </button>
+
+                    <button class="genre-filter"
+                            data-genre="animation"
+                            aria-pressed="false">
+                        Animation
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RELEASE YEAR -->
+            <div class="filter-group">
+
+                <h3>Release Year</h3>
+
+                <select id="yearFilter" class="filter-select">
+
+                    <option value="all">All Years</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                    <option value="1995">1995</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                    <option value="1991">1991</option>
+                    <option value="1990">1990</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- RATING FILTER -->
+            <div class="filter-group">
+
+                <h3>Minimum Rating</h3>
+
+                <select id="ratingFilter" class="filter-select">
+
+                    <option value="0">Any Rating</option>
+                    <option value="7">7.0+</option>
+                    <option value="8">8.0+</option>
+                    <option value="9">9.0+</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- SIDEBAR INFORMATION -->
+            <div class="sidebar-note">
+
+                <span>✦</span>
+
+                <h3>Your cinema journey.</h3>
+
+                <p>
+                    Discover films, build your watchlist
+                    and find stories worth remembering.
+                </p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MOVIE RESULTS -->
+        <section class="movies-results">
+
+            <!-- RESULTS HEADER -->
+            <div class="movies-results-header">
+
+                <div>
+                    <span class="section-label">
+                        YOUR MOVIE LIBRARY
+                    </span>
+
+                    <h2>Explore Movies</h2>
+
+                    <p id="movieCount">
+                        Showing 8 movies
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH AND SORT -->
+            <div class="movies-toolbar">
+
+                <div class="catalog-search">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="movieSearch"
+                        placeholder="Search movies..."
+                        aria-label="Search movies"
+                    >
+
+                </div>
+
+
+                <select id="sortMovies" class="sort-select">
+
+                    <option value="popular">Sort: Popularity</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="alphabetical">A - Z</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- MOVIE GRID -->
+            <div class="catalog-movie-grid" id="catalogMovieGrid">
+
+
+                <!-- MOVIE 1 -->
+                <article class="catalog-card"
+                         data-title="Fight Club"
+                         data-genres="action drama"
+                         data-year="1999"
+                         data-rating="8.8"
+                         data-popularity="1">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/Fighclub-poster.jpg"
+                             alt="Fight Club poster">
+
+                        <span class="catalog-badge">
+                            INS KINO PICK
+                        </span>
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>Fight Club</h3>
+
+                        <p>1999 · Action / Drama</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.8</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 2 -->
+                <article class="catalog-card"
+                         data-title="Interstellar"
+                         data-genres="scifi adventure"
+                         data-year="2014"
+                         data-rating="8.6"
+                         data-popularity="2">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/Interstellar-poster.jpg"
+                             alt="Interstellar poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>Interstellar</h3>
+
+                        <p>2014 · Sci-Fi / Adventure</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.6</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 3 -->
+                <article class="catalog-card"
+                         data-title="Goodfellas"
+                         data-genres="drama crime"
+                         data-year="1990"
+                         data-rating="8.7"
+                         data-popularity="3">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/Goodfellas-poster.jpg"
+                             alt="Goodfellas poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>Goodfellas</h3>
+
+                        <p>1990 · Drama / Crime</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.7</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 4 -->
+                <article class="catalog-card"
+                         data-title="The Goodfather"
+                         data-genres="drama crime"
+                         data-year="1972"
+                         data-rating="9.2"
+                         data-popularity="4">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/godfather_icon.jpg"
+                             alt="The Goodfather poster">
+
+                        <span class="catalog-badge">
+                            TRENDING
+                        </span>
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>The Goodfather</h3>
+
+                        <p>1972 · Drama / Crime</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 9.2</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 5 -->
+                <article class="catalog-card"
+                         data-title="Beyond the Stars"
+                         data-genres="scifi adventure"
+                         data-year="2024"
+                         data-rating="8.7"
+                         data-popularity="5">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/movie5.jpg"
+                             alt="Beyond the Stars poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>Beyond the Stars</h3>
+
+                        <p>2024 · Sci-Fi / Adventure</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.7</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 6 -->
+                <article class="catalog-card"
+                         data-title="A Different Story"
+                         data-genres="drama romance"
+                         data-year="2023"
+                         data-rating="8.1"
+                         data-popularity="6">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/movie6.jpg"
+                             alt="A Different Story poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>A Different Story</h3>
+
+                        <p>2023 · Drama / Romance</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.1</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 7 -->
+                <article class="catalog-card"
+                         data-title="Laughing Matters"
+                         data-genres="comedy"
+                         data-year="2025"
+                         data-rating="7.8"
+                         data-popularity="7">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/movie7.jpg"
+                             alt="Laughing Matters poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>Laughing Matters</h3>
+
+                        <p>2025 · Comedy</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 7.8</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOVIE 8 -->
+                <article class="catalog-card"
+                         data-title="The Forgotten World"
+                         data-genres="horror thriller"
+                         data-year="2022"
+                         data-rating="8.3"
+                         data-popularity="8">
+
+                    <div class="catalog-poster">
+
+                        <img src="assets/posters/movie8.jpg"
+                             alt="The Forgotten World poster">
+
+                        <a href="login.html"
+                           class="catalog-watchlist"
+                           aria-label="Sign in to add to watchlist">
+                            +
+                        </a>
+
+                    </div>
+
+                    <div class="catalog-info">
+
+                        <h3>The Forgotten World</h3>
+
+                        <p>2022 · Horror / Thriller</p>
+
+                        <div class="catalog-rating">
+                            <span>★ 8.3</span>
+                            <span>Movie</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- EMPTY RESULTS -->
+            <div class="no-movies" id="noMovies" hidden>
+
+                <span>⌕</span>
+
+                <h3>No movies found.</h3>
+
+                <p>
+                    Try changing your search or filter settings.
+                </p>
+
+                <button type="button" id="resetMovieSearch">
+                    Reset Filters
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </section>
+
+</main>
+
+    <!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND SECTION -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="brand">
+                
+                <img src="assets/logo/inskino-logo.svg" height="50" alt="InsKino Logo" class="brand-logo">
+
+            </a>
+
+            <p>
+                Your personal space for discovering,
+                rating and reviewing the world of cinema.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="YouTube">YT</a>
+            </div>
+
+        </div>
+
+
+        <!-- EXPLORE LINKS -->
+        <div class="footer-column">
+
+            <h3>Explore</h3>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="tv-shows.html">TV Shows</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- ACCOUNT LINKS -->
+        <div class="footer-column">
+
+            <h3>My Account</h3>
+
+            <ul>
+                <li><a href="login.html">Sign In</a></li>
+                <li><a href="register.html">Create Account</a></li>
+                <li><a href="watchlist.html">My Watchlist</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- SUPPORT LINKS -->
+        <div class="footer-column">
+
+            <h3>Information</h3>
+
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="currentYear"></span> InsKino.
+            All rights reserved.
+        </p>
+
+        <p class="footer-tagline">
+            MADE FOR MOVIE LOVERS <span>✦</span>
+        </p>
+
+    </div>
+
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
