@@ -248,3 +248,37 @@ const currentYear = document.getElementById("currentYear");
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
+
+// ========================================
+// TOP 5 CREATOR LIST TOGGLE
+// ========================================
+
+const top5Toggle = document.getElementById("top5Toggle");
+const premtimTop5 = document.getElementById("premtimTop5");
+const muhametTop5 = document.getElementById("muhametTop5");
+const top5CreatorName = document.getElementById("top5CreatorName");
+
+if (top5Toggle && premtimTop5 && muhametTop5 && top5CreatorName) {
+    top5Toggle.addEventListener("click", () => {
+        const showingPremtim = !premtimTop5.hidden;
+        const currentList = showingPremtim ? premtimTop5 : muhametTop5;
+        const nextList = showingPremtim ? muhametTop5 : premtimTop5;
+
+        currentList.hidden = true;
+        nextList.classList.remove("is-entering");
+        nextList.hidden = false;
+        void nextList.offsetWidth;
+        nextList.classList.add("is-entering");
+        nextList.addEventListener("animationend", event => {
+            if (event.target === nextList) {
+                nextList.classList.remove("is-entering");
+            }
+        }, { once: true });
+
+        const activeCreator = showingPremtim ? "Muhamet" : "Premtim";
+        const nextCreator = showingPremtim ? "Premtim" : "Muhamet";
+
+        top5CreatorName.textContent = `${activeCreator}'s Top 5`;
+        top5Toggle.textContent = `Show ${nextCreator}'s Top 5`;
+    });
+}
